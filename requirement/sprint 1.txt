@@ -1,0 +1,41 @@
+Inventory micro service : sprint 1 and 2(Need to plan agile model)
+--------------------------------
+0.create design and analysis document
+1.creating inventory micro service module(need to align to 12 factor model)
+2.implement a few inventory core services listed below
+3.integrate with admin ui and consumer ui
+4.pmd,maven plugin code quality assurance
+5jenkins platform,git,maven for build
+6.dockerise
+7.deployment in aws
+8.ui karama/potractor test cases, backend junit(mockitio incase of mock services) 
+9.reviews
+10.layer wise performance optimization
+11.setup project management tracker
+
+
+product
+-------------------
+product name:string
+category:List<string>
+price:big decimal
+average rating :int
+photos:list<string>
+quantity;int
+reviews:List<Review>
+decrption:string
+
+Review
+-------
+Quality
+Price
+value
+string
+
+product inventory functions
+-----------------------------
+add product boolean addProduct(Product)
+search List<Product> searchProduct(ProductSearchRequest)
+editproduct boolean editProduct(Product)
+list products -getAllProducts()
+search,pagination,filter
