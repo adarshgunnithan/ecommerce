@@ -1,5 +1,11 @@
 package com.ecomm.inventory.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 //
 
 //
@@ -13,6 +19,8 @@ package com.ecomm.inventory.domain;
 //
 
 /** */
+@Entity
+@Table(name="comment")
 public class Comment {
 	/**
 	 * @return the commentDescription
@@ -45,8 +53,29 @@ public class Comment {
 	}
 
 	/** */
+	@Column(name="comment_description")
 	private String commentDescription;
 
 	/** */
+	@Column(name="meta_data")
+	@OneToOne
 	private MetaData metaData;
+	
+	@Id
+	@Column(name="id")
+	private Integer id;
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }
