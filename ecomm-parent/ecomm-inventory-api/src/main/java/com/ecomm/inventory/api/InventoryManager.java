@@ -18,13 +18,34 @@ import com.ecomm.inventory.domain.ProductSearch;
 
 
 
-
-/** */
+/**
+ * @author Adarsh
+ *
+ */
 public interface InventoryManager {
 	
+	/**
+	 * @param productSearch
+	 * @return
+	 */
 	public List<Product> getProducts(ProductSearch productSearch) ;
 	
-	/** */
+	/**
+	 * @param productId
+	 * @return
+	 */
 	public Product getProductDetails(int productId);
+	
+	/**
+	 * @param product
+	 * @return
+	 */
+	public boolean addProduct(Product product);
+	
+	/**
+	 * @param product
+	 * @return
+	 */
+	public Product updateProduct(Product product);
 	
 }

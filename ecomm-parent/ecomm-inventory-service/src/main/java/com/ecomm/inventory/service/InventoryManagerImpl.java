@@ -32,4 +32,20 @@ public class InventoryManagerImpl implements InventoryManager{
 		return null;
 		
 	}
+
+	/* (non-Javadoc)
+	 * @see com.ecomm.inventory.api.InventoryManager#addProduct(com.ecomm.inventory.domain.Product)
+	 */
+	public boolean addProduct(Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.ecomm.inventory.api.InventoryManager#updateProduct(com.ecomm.inventory.domain.Product)
+	 */
+	public Product updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
