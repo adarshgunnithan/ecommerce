@@ -3,10 +3,17 @@
  */
 package com.ecomm.inventory.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author Adarsh
  *
  */
+@Entity
+@Table(name="user")
 public class User {
 	
 /**
@@ -23,5 +30,10 @@ public class User {
 		this.userName = userName;
 	}
 
+@Column(name="username")
 private String userName;
+
+@Column(name="id")
+@Id
+private Integer id;
 }

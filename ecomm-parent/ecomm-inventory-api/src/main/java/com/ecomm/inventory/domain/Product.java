@@ -1,11 +1,16 @@
 package com.ecomm.inventory.domain;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,7 +31,7 @@ import javax.persistence.Table;
 
 /** */
 @Entity
-@Table(name="product")
+@Table(name="ecommproduct")
 public class Product {
 	
 	/**
@@ -54,35 +59,43 @@ public class Product {
 	private String description;
 	
 	/** */
-	@Column(name="reviews")
 	@OneToMany
+	@JoinColumn(name="id")
+	@ElementCollection
 	private List<Review> reviews;
 	
 	/** */
-	@Column(name="key_features")
-	@OneToMany
-	private List<String> keyFeatures;
+	//@Column(name="keyFeatures")
+	//@OneToMany
+	@JoinColumn(name="keyFeatures")
+	@ElementCollection
+	private Collection<String> keyFeatures;
 	
 	/** */
-	@Column(name="images")
-	@OneToMany
-	private List<String> images;
+	//@Column(name="images")
+	//@OneToMany
+	@JoinColumn(name="images")
+	@ElementCollection
+	private Collection<String> images;
 	
 	/** */
-	@Column(name="categories")
-	@OneToMany
-	private List<String> categories;
+	//@Column(name="categories")
+	//@OneToMany
+	@JoinColumn(name="categories")
+	@ElementCollection
+	private Collection<String> categories;
 	
 	/** */
 	@Column(name="rating")
-	private Enum rating;
+	 @Enumerated(EnumType.ORDINAL)
+	private Rating rating;
 	
 	/** */
 	@Column(name="price")
 	private BigDecimal price;
 	
 	/** */
-	@Column(name="discount_percent")
+	@Column(name="discountpercent")
 	private int discountPercent;
 	
 	/**
@@ -127,46 +140,55 @@ public class Product {
 		this.reviews = reviews;
 	}
 
+	
+
 	/**
 	 * @return the keyFeatures
 	 */
-	public List<String> getKeyFeatures() {
+	public Collection<String> getKeyFeatures() {
 		return keyFeatures;
 	}
 
 	/**
 	 * @param keyFeatures the keyFeatures to set
 	 */
-	public void setKeyFeatures(List<String> keyFeatures) {
+	public void setKeyFeatures(Collection<String> keyFeatures) {
 		this.keyFeatures = keyFeatures;
 	}
 
 	/**
 	 * @return the images
 	 */
-	public List<String> getImages() {
+	public Collection<String> getImages() {
 		return images;
 	}
 
 	/**
 	 * @param images the images to set
 	 */
-	public void setImages(List<String> images) {
+	public void setImages(Collection<String> images) {
 		this.images = images;
 	}
 
 	/**
 	 * @return the categories
 	 */
-	public List<String> getCategories() {
+	public Collection<String> getCategories() {
 		return categories;
 	}
 
 	/**
 	 * @param categories the categories to set
 	 */
-	public void setCategories(List<String> categories) {
+	public void setCategories(Collection<String> categories) {
 		this.categories = categories;
+	}
+
+	/**
+	 * @param tags the tags to set
+	 */
+	public void setTags(Collection<String> tags) {
+		this.tags = tags;
 	}
 
 	/**
@@ -176,18 +198,20 @@ public class Product {
 		return rating;
 	}
 
-	/**
-	 * @param rating the rating to set
-	 */
-	public void setRating(Enum rating) {
-		this.rating = rating;
-	}
+
 
 	/**
 	 * @return the price
 	 */
 	public BigDecimal getPrice() {
 		return price;
+	}
+
+	/**
+	 * @param rating the rating to set
+	 */
+	public void setRating(Rating rating) {
+		this.rating = rating;
 	}
 
 	/**
@@ -211,10 +235,11 @@ public class Product {
 		this.discountPercent = discountPercent;
 	}
 
+	
 	/**
 	 * @return the tags
 	 */
-	public List<String> getTags() {
+	public Collection<String> getTags() {
 		return tags;
 	}
 
@@ -240,12 +265,13 @@ public class Product {
 	}
 
 	/** */
-	@OneToMany
-	@Column(name="tags")
-	private List<String> tags;
+	//@OneToMany
+	@JoinColumn(name="tags")
+	@ElementCollection
+	private Collection<String> tags;
 	
 	/** */
 	@OneToOne
-	@Column(name="meta-data")
+	@JoinColumn(name="metadata")
 	private MetaData metaData;
 }

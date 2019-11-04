@@ -5,8 +5,11 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 //
 //
@@ -84,19 +87,21 @@ public class MetaData {
 
 	/** */
 	@Column(name="modified_date")
+	   @Temporal(TemporalType.TIMESTAMP)
 	private Date modifiedDate;
 	
 	/** */
 	@Column(name="created_date")
+	   @Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
 	
 	/** */
-	@Column(name="modified_by")
+	@JoinColumn(name="modified_by")
 	@OneToOne
 	private User modifiedBy;
 	
 	/** */
-	@Column(name="created_by")
+	@JoinColumn(name="created_by")
 	@OneToOne
 	private User createdBy;
 	@Id

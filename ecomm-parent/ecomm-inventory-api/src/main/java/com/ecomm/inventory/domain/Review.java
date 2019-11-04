@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -88,11 +89,10 @@ public class Review {
 	private Integer id;
 	/** */
 	 @Column(name="rating")
-	 @OneToOne
 	private Rating rating;
 	
 	/** */
-	@Column(name="comment")
+	@JoinColumn(name="comment")
 	@OneToOne
 	private Comment comment;
 	

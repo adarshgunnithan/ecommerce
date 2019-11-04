@@ -3,6 +3,7 @@ package com.ecomm.inventory.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -57,7 +58,7 @@ public class Comment {
 	private String commentDescription;
 
 	/** */
-	@Column(name="meta_data")
+	@JoinColumn(name="meta_data")
 	@OneToOne
 	private MetaData metaData;
 	
